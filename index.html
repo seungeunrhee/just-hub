@@ -101,9 +101,9 @@ button,input,textarea,select{font:inherit;color:inherit}
 @media (max-width:420px){.wmsub{display:none}}
 .brandsub{font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,.42);letter-spacing:.1em}
 .spacer{flex:1}
-.nav{display:flex;gap:2px;background:rgba(255,255,255,.09);border-radius:999px;padding:3px;flex:none}
+.nav{display:flex;flex-wrap:wrap;gap:2px;background:rgba(255,255,255,.09);border-radius:999px;padding:3px;flex:none}
 .nav button{border:0;background:transparent;color:rgba(255,255,255,.7);padding:5px 15px;border-radius:999px;
-  cursor:pointer;font-size:13px;font-weight:600;transition:.15s}
+  cursor:pointer;font-size:13px;font-weight:600;transition:.15s;white-space:nowrap;font-family:inherit}
 .nav button:hover{color:#fff}
 .nav button[aria-pressed="true"]{background:#fff;color:var(--header)}
 .whoami{font-size:12.5px;color:rgba(255,255,255,.62);background:transparent;border:0;cursor:pointer;
@@ -477,7 +477,7 @@ const BUCKET        = "wiki-files";
         <span class="wmsub">커머스 HUB</span>
       </button>
       <span class="brandsub" id="count">—</span>
-      <nav class="nav"><button id="navDocs" aria-pressed="true">문서</button><button id="navCal" aria-pressed="false">캘린더</button><button id="navDone" aria-pressed="false">완료 기록</button><button id="navPrice" aria-pressed="false">가격 계산</button></nav>
+      <nav class="nav"><button id="navDocs" aria-pressed="true">문서</button><button id="navCal" aria-pressed="false">캘린더</button><button id="navDone" aria-pressed="false">완료 기록</button><button id="navPrice" aria-pressed="false">라이브 상품리스트 양식</button></nav>
       <span class="spacer"></span>
       <button class="whoami" id="whoami">이름 설정</button>
       <button class="btn" id="ioBtn">가져오기 / 내보내기</button>
@@ -1016,7 +1016,7 @@ function renderPrice(){
   const prods=q?c.products.filter(p=>(p.name||'').toLowerCase().indexOf(q)>=0):c.products;
   app.innerHTML=`
     <div class="donehead">
-      <div><h1 class="donetitle">가격 계산</h1>
+      <div><h1 class="donetitle">라이브 상품리스트 양식</h1>
       <p class="donesub">제품을 고르고 플랫폼을 누르면 합산가와 할인 적용가가 바로 나옵니다.</p></div>
       <button class="btn" id="pcEdit">제품 · 플랫폼 설정</button>
     </div>
