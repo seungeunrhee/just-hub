@@ -143,6 +143,7 @@ button,input,textarea,select{font:inherit;color:inherit}
 .card.t-channel::before{background:var(--teal)}
 .card.t-faq::before{background:var(--clay)}
 .card.t-schedule::before{background:var(--sage)}
+.card.t-live::before{background:var(--plum)}
 .card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--line-2)}
 .card:active{transform:translateY(0)}
 @media (max-width:520px){.list{grid-template-columns:1fr;gap:11px}.card{padding:15px 16px 13px}}
@@ -162,6 +163,7 @@ button,input,textarea,select{font:inherit;color:inherit}
 .pill.channel{background:var(--teal-tint);color:var(--teal)}
 .pill.faq{background:var(--clay-tint);color:var(--clay)}
 .pill.schedule{background:var(--sage-tint);color:var(--sage)}
+.pill.live{background:var(--plum-tint);color:var(--plum)}
 .pill.why{background:transparent;border:1px dashed var(--line-2);color:var(--ink-3);font-weight:500}
 .pill.sample{background:transparent;border:1px solid var(--line-2);color:var(--ink-3);font-weight:500}
 .pill.prog{background:var(--sage-tint);color:var(--sage);font-family:var(--mono);font-size:10.5px}
@@ -271,6 +273,45 @@ ul.bul li::before{content:"";position:absolute;left:1px;top:11px;width:4px;heigh
 .dhead{display:block;font-size:10.5px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:2px}
 .dby{font-size:12.5px;color:var(--ink-2);white-space:nowrap}
 @media (max-width:560px){.donehead .btn{margin-left:0}.donecount{margin-left:0}}
+/* 가격 계산 */
+.pcwrap{display:grid;grid-template-columns:1fr 360px;gap:16px;align-items:start}
+@media (max-width:880px){.pcwrap{grid-template-columns:1fr}}
+.pcbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--shadow-sm);padding:16px 18px}
+.pcbox h2{margin:0 0 11px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.plats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.plat{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;
+  font-size:13px;font-weight:600;color:var(--ink-2);font-family:inherit}
+.plat:hover{border-color:var(--plum);color:var(--plum)}
+.plat[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.psearch{width:100%;padding:9px 12px;border:1px solid var(--line-2);border-radius:8px;font-size:13.5px;margin-bottom:10px;font-family:inherit}
+.plist{display:flex;flex-direction:column;gap:2px;max-height:430px;overflow:auto}
+.prow{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:7px;cursor:pointer;border:1px solid transparent}
+.prow:hover{background:var(--surface-2)}
+.prow[aria-pressed="true"]{background:var(--plum-tint);border-color:var(--plum-tint)}
+.prow .pb{width:17px;height:17px;border-radius:5px;border:1.5px solid var(--line-2);display:grid;place-items:center;
+  font-size:11px;color:transparent;flex:none}
+.prow[aria-pressed="true"] .pb{background:var(--plum);border-color:var(--plum);color:#fff}
+.prow .pn{flex:1;font-size:13.5px;color:var(--ink);text-align:left}
+.prow .pp{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.qty{width:52px;padding:4px 6px;border:1px solid var(--line-2);border-radius:6px;font-family:var(--mono);font-size:12px;text-align:right}
+.ptab{width:100%;border-collapse:collapse;font-size:13px}
+.ptab td{padding:7px 0;border-bottom:1px dashed var(--line);color:var(--ink-2)}
+.ptab td:last-child{text-align:right;font-family:var(--mono);color:var(--ink)}
+.ptab tr:last-child td{border-bottom:0}
+.pcut{color:var(--clay)}
+.pfinal{display:flex;align-items:baseline;gap:8px;margin-top:13px;padding-top:13px;border-top:1.5px solid var(--line-2)}
+.pfinal b{font-size:23px;letter-spacing:-.03em;color:var(--plum);font-family:var(--mono)}
+.pfinal span{margin-left:auto;font-size:12px;color:var(--ink-3)}
+.pcopy{margin-top:11px;width:100%}
+.ptpl{width:100%;min-height:92px;padding:10px;border:1px solid var(--line-2);border-radius:8px;
+  font-family:var(--mono);font-size:12px;line-height:1.65;resize:vertical;color:var(--ink);background:var(--surface-2)}
+.edrow{display:flex;gap:8px;align-items:center;margin-bottom:7px}
+.edrow input,.edrow select{padding:7px 9px;border:1px solid var(--line-2);border-radius:7px;font-size:13px;font-family:inherit;background:var(--surface)}
+.edrow .x{border:0;background:transparent;color:var(--ink-3);cursor:pointer;font-size:15px;line-height:1;padding:4px 7px;flex:none}
+.edrow .x:hover{color:var(--clay)}
+.edhint{font-size:12px;color:var(--ink-3);line-height:1.65;margin:0 0 10px}
+.pcnote{font-size:12.5px;color:var(--ink-2);line-height:1.65;margin:10px 0 0;padding:9px 11px;background:var(--surface-2);border-radius:7px}
+
 
 /* ── 체크리스트 ───────────────────────── */
 .chklist{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
@@ -436,7 +477,7 @@ const BUCKET        = "wiki-files";
         <span class="wmsub">커머스 HUB</span>
       </button>
       <span class="brandsub" id="count">—</span>
-      <nav class="nav"><button id="navDocs" aria-pressed="true">문서</button><button id="navCal" aria-pressed="false">캘린더</button><button id="navDone" aria-pressed="false">완료 기록</button></nav>
+      <nav class="nav"><button id="navDocs" aria-pressed="true">문서</button><button id="navCal" aria-pressed="false">캘린더</button><button id="navDone" aria-pressed="false">완료 기록</button><button id="navPrice" aria-pressed="false">가격 계산</button></nav>
       <span class="spacer"></span>
       <button class="whoami" id="whoami">이름 설정</button>
       <button class="btn" id="ioBtn">가져오기 / 내보내기</button>
@@ -573,7 +614,8 @@ const TYPES={
   sop:{ko:'업무 매뉴얼',hint:'절차·진행 방법'},
   channel:{ko:'채널·플랫폼',hint:'계정·담당자·규칙'},
   faq:{ko:'문제 해결',hint:'증상과 대처'},
-  schedule:{ko:'일정·체크리스트',hint:'반복 업무'}
+  schedule:{ko:'일정·체크리스트',hint:'반복 업무'},
+  live:{ko:'라이브 방송',hint:'플랫폼별 전달 양식·가격'}
 };
 const KINDS={steps:'번호 절차',list:'목록',warn:'주의사항',fields:'항목표(키:값)',text:'자유 서술'};
 const CYCLES={month:'매월',week:'매주',day:'매일',quarter:'분기',none:'초기화 없음'};
@@ -592,7 +634,8 @@ function pf(key){return PLATFORMS.find(p=>p.key===key)||{key:key||'공통',label
 const S={docs:[],checks:{},events:[],q:'',cat:'all',view:'list',cur:null,loaded:false,dRange:'month',dDoc:'all',dBy:'all',
   draft:null,editing:null,pendDel:null,msg:null,me:'',
   cal:{y:new Date().getFullYear(),m:new Date().getMonth()},selDate:null,
-  curEv:null,evDraft:null,evEditing:null,evPendDel:null,io:{text:'',res:''}};
+  curEv:null,evDraft:null,evEditing:null,evPendDel:null,io:{text:'',res:''},
+  cfg:null,price:{sel:{},qty:{},plat:'',q:'',edit:false,pl:null,copied:false}};
 let sb=null;
 
 const app=document.getElementById('app');
@@ -678,7 +721,13 @@ async function loadAll(){
       sb.from('checks').select('*').limit(2000)
     ]);
     if(d.error)throw d.error;
-    S.docs=(d.data||[]).map(docFrom);
+    const _rows=d.data||[];
+    S.docs=_rows.filter(r=>!String(r.id||'').startsWith('cfg-')).map(docFrom);
+    if(!(S.view==='price'&&S.price.edit)){
+      const _cf=_rows.find(r=>r.id==='cfg-live-price');
+      if(_cf&&_cf.raw){try{S.cfg=JSON.parse(_cf.raw);}catch(e){}}
+    }
+    if(!S.cfg)S.cfg={products:[],platforms:[]};
     S.events=(e.data||[]).map(evFrom);
     const m={};(c.data||[]).forEach(r=>{m[r.id]={period:r.period,items:r.items||{}};});
     S.checks=m;
@@ -701,10 +750,13 @@ function render(){
   document.getElementById('clearq').hidden=!S.q;
   document.getElementById('whoami').textContent=S.me?S.me:'이름 설정';
   const inDone=S.view==='done';
-  document.getElementById('navDocs').setAttribute('aria-pressed',String(!inCal&&!inDone));
+  const inPrice=S.view==='price';
+  document.getElementById('navPrice').setAttribute('aria-pressed',String(inPrice));
+  document.getElementById('navDocs').setAttribute('aria-pressed',String(!inCal&&!inDone&&!inPrice));
   document.getElementById('navCal').setAttribute('aria-pressed',String(inCal));
   document.getElementById('navDone').setAttribute('aria-pressed',String(inDone));
-  if(inDone){document.getElementById('newBtn').hidden=true;document.getElementById('ioBtn').hidden=true;}
+  if(inDone||inPrice){document.getElementById('newBtn').hidden=true;document.getElementById('ioBtn').hidden=true;}
+  if(S.view==='price')return renderPrice();
   if(S.view==='done')return renderDone();
   if(S.view==='doc'&&S.cur)return renderDoc();
   if(S.view==='compose')return renderCompose();
@@ -916,6 +968,176 @@ function renderDone(){
   document.getElementById('fBy').onchange=e=>{S.dBy=e.target.value;render();};
   app.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openDoc(b.dataset.open));
   document.getElementById('xlsx').onclick=()=>exportDone(rows);
+}
+
+/* ══════════════ 6. 가격 계산 ══════════════ */
+const won=n=>(Number(n)||0).toLocaleString('ko-KR');
+function pcfg(){
+  if(!S.cfg)S.cfg={products:[],platforms:[]};
+  if(!Array.isArray(S.cfg.products))S.cfg.products=[];
+  if(!Array.isArray(S.cfg.platforms))S.cfg.platforms=[];
+  return S.cfg;
+}
+async function saveCfg(){
+  if(!sb)return;
+  const row={id:'cfg-live-price',title:'[설정] 라이브 가격 계산',type:'sop',summary:'',tags:[],keywords:[],
+    blocks:[],files:[],cycle:'none',raw:JSON.stringify(pcfg()),author:'',sample:false,
+    updated_at:new Date().toISOString()};
+  const {error}=await sb.from('docs').upsert(row);
+  if(error)S.msg={t:'설정을 저장하지 못했습니다. '+(error.message||''),k:'err'};
+}
+function priceCalc(){
+  const c=pcfg();
+  const items=c.products.filter(p=>S.price.sel[p.id]).map(p=>({id:p.id,name:p.name,price:Number(p.price)||0,
+    qty:Math.max(1,parseInt(S.price.qty[p.id],10)||1)}));
+  const base=items.reduce((a,b)=>a+b.price*b.qty,0);
+  const pl=c.platforms.find(p=>p.id===S.price.plat)||null;
+  let cur=base;const steps=[];
+  if(pl)(pl.steps||[]).forEach(st=>{
+    const v=Number(st.value)||0;
+    const cut=st.kind==='won'?v:Math.round(cur*v/100);
+    cur=Math.max(0,cur-cut);
+    steps.push({label:st.label||'할인',desc:st.kind==='won'?won(v)+'원':v+'%',cut:cut,after:cur});
+  });
+  return {items:items,base:base,steps:steps,final:cur,pl:pl,rate:base?Math.round((1-cur/base)*1000)/10:0};
+}
+function tplText(r){
+  const compo=r.items.map(i=>i.name+(i.qty>1?' ×'+i.qty:'')).join(' + ');
+  let t=(r.pl&&r.pl.tpl)?r.pl.tpl:'[{플랫폼}]\n제품 구성 : {구성}\n정상가 : {정가}\n판매가 : {최종가} ({할인율} 할인)';
+  const map={'{플랫폼}':r.pl?r.pl.name:'','{구성}':compo,'{정가}':won(r.base)+'원',
+    '{최종가}':won(r.final)+'원','{할인율}':r.rate+'%',
+    '{할인내역}':r.steps.map(s=>s.label+' '+s.desc).join(' / ')};
+  Object.keys(map).forEach(k=>{t=t.split(k).join(map[k]);});
+  return t;
+}
+function renderPrice(){
+  if(S.price.edit)return renderPriceEdit();
+  const c=pcfg(),r=priceCalc(),q=(S.price.q||'').trim().toLowerCase();
+  const prods=q?c.products.filter(p=>(p.name||'').toLowerCase().indexOf(q)>=0):c.products;
+  app.innerHTML=`
+    <div class="donehead">
+      <div><h1 class="donetitle">가격 계산</h1>
+      <p class="donesub">제품을 고르고 플랫폼을 누르면 합산가와 할인 적용가가 바로 나옵니다.</p></div>
+      <button class="btn" id="pcEdit">제품 · 플랫폼 설정</button>
+    </div>
+    ${(!c.products.length||!c.platforms.length)?`<div class="empty"><strong>먼저 설정이 필요합니다</strong>[제품 · 플랫폼 설정]에서 제품 가격과 플랫폼별 할인을 한 번만 등록해 두면, 이후에는 고르기만 하면 됩니다.</div>`:''}
+    <div class="plats">${c.platforms.map(p=>`<button class="plat" data-pl="${esc(p.id)}" aria-pressed="${S.price.plat===p.id}">${esc(p.name||'이름 없음')}</button>`).join('')}</div>
+    <div class="pcwrap">
+      <div class="pcbox">
+        <h2>제품 구성</h2>
+        ${c.products.length>8?`<input class="psearch" id="pq" placeholder="제품 검색" value="${esc(S.price.q||'')}">`:''}
+        <div class="plist">${prods.map(p=>{const on=!!S.price.sel[p.id];return `
+          <div class="prow" data-p="${esc(p.id)}" aria-pressed="${on}">
+            <span class="pb">✓</span><span class="pn">${esc(p.name||'')}</span>
+            ${on?`<input class="qty" data-q="${esc(p.id)}" value="${esc(String(S.price.qty[p.id]||1))}">`:''}
+            <span class="pp">${won(p.price)}</span>
+          </div>`;}).join('')||'<p class="edhint">등록된 제품이 없습니다.</p>'}</div>
+      </div>
+      <div class="pcbox">
+        <h2>계산 결과</h2>
+        ${r.items.length?`<table class="ptab"><tbody>
+          ${r.items.map(i=>`<tr><td>${esc(i.name)}${i.qty>1?' ×'+i.qty:''}</td><td>${won(i.price*i.qty)}</td></tr>`).join('')}
+          <tr><td><b>정상가 합계</b></td><td><b>${won(r.base)}</b></td></tr>
+          ${r.steps.map(s=>`<tr><td>${esc(s.label)} <span class="pp">${esc(s.desc)}</span></td><td class="pcut">−${won(s.cut)}</td></tr>`).join('')}
+        </tbody></table>
+        <div class="pfinal"><b>${won(r.final)}원</b><span>${r.pl?esc(r.pl.name)+' · ':''}${r.rate}% 할인</span></div>
+        ${(r.pl&&r.pl.note)?`<p class="pcnote">${lnk(r.pl.note)}</p>`:''}
+        <h2 style="margin-top:18px">전달 양식</h2>
+        <textarea class="ptpl" id="pcOut" readonly>${esc(tplText(r))}</textarea>
+        <button class="btn primary pcopy" id="pcCopy">${S.price.copied?'복사했습니다':'양식 복사'}</button>`
+        :'<p class="edhint">왼쪽에서 제품을 선택하면 계산됩니다.</p>'}
+      </div>
+    </div>`;
+  document.getElementById('pcEdit').onclick=()=>{S.price.edit=true;S.price.pl=S.price.pl||(pcfg().platforms[0]||{}).id||null;window.scrollTo(0,0);render();};
+  const pq=document.getElementById('pq');
+  if(pq)pq.oninput=e=>{const v=e.target.value,cpos=e.target.selectionStart;S.price.q=v;render();
+    const n=document.getElementById('pq');if(n){n.focus();try{n.setSelectionRange(cpos,cpos);}catch(_){}}};
+  app.querySelectorAll('[data-pl]').forEach(b=>b.onclick=()=>{
+    S.price.plat=S.price.plat===b.dataset.pl?'':b.dataset.pl;S.price.copied=false;render();});
+  app.querySelectorAll('[data-p]').forEach(b=>b.onclick=e=>{
+    if(e.target.classList&&e.target.classList.contains('qty'))return;
+    const id=b.dataset.p;
+    if(S.price.sel[id])delete S.price.sel[id];
+    else{S.price.sel[id]=true;if(!S.price.qty[id])S.price.qty[id]=1;}
+    S.price.copied=false;render();});
+  app.querySelectorAll('[data-q]').forEach(i=>{
+    i.onclick=e=>e.stopPropagation();
+    i.onchange=e=>{S.price.qty[i.dataset.q]=Math.max(1,parseInt(e.target.value,10)||1);S.price.copied=false;render();};});
+  const cp=document.getElementById('pcCopy');
+  if(cp)cp.onclick=async()=>{
+    const ta=document.getElementById('pcOut');
+    try{await navigator.clipboard.writeText(ta.value);S.price.copied=true;render();
+      setTimeout(()=>{S.price.copied=false;if(S.view==='price'&&!S.price.edit)render();},1800);}
+    catch(_){ta.select();}};
+}
+function renderPriceEdit(){
+  const c=pcfg(),pl=c.platforms.find(p=>p.id===S.price.pl)||null;
+  app.innerHTML=`
+    <div class="donehead">
+      <div><h1 class="donetitle">제품 · 플랫폼 설정</h1>
+      <p class="donesub">한 번 등록해 두면 팀 전체가 같은 값으로 계산합니다.</p></div>
+      <button class="btn primary" id="pcDone">저장하고 돌아가기</button>
+    </div>
+    <div class="pcwrap">
+      <div class="pcbox">
+        <h2>제품 가격</h2>
+        <p class="edhint">제품명과 정상가를 적어주세요. 가격은 숫자만 적습니다.</p>
+        ${c.products.map(p=>`<div class="edrow">
+          <input style="flex:1" data-pn="${esc(p.id)}" value="${esc(p.name||'')}" placeholder="제품명">
+          <input style="width:108px;text-align:right;font-family:var(--mono)" data-pp="${esc(p.id)}" value="${esc(String(p.price||''))}" placeholder="0">
+          <button class="x" data-pd="${esc(p.id)}" title="삭제">✕</button></div>`).join('')}
+        <button class="btn sm" id="pcAddP">+ 제품 추가</button>
+      </div>
+      <div class="pcbox">
+        <h2>플랫폼</h2>
+        <div class="plats">
+          ${c.platforms.map(p=>`<button class="plat" data-ple="${esc(p.id)}" aria-pressed="${!!(pl&&pl.id===p.id)}">${esc(p.name||'이름 없음')}</button>`).join('')}
+          <button class="plat" id="pcAddPl">+ 추가</button>
+        </div>
+        ${pl?`
+          <div class="edrow"><input style="flex:1" id="plName" value="${esc(pl.name||'')}" placeholder="플랫폼 이름">
+            <button class="x" id="plDel" title="이 플랫폼 삭제">✕</button></div>
+          <p class="edhint">할인은 위에서부터 차례로 적용됩니다. 즉시할인 · 쿠폰 · 카드할인을 적용 순서대로 넣으세요.</p>
+          ${(pl.steps||[]).map((st,i)=>`<div class="edrow">
+            <input style="flex:1" data-sl="${i}" value="${esc(st.label||'')}" placeholder="예: 카드 즉시할인">
+            <select data-sk="${i}"><option value="pct" ${st.kind!=='won'?'selected':''}>%</option><option value="won" ${st.kind==='won'?'selected':''}>원</option></select>
+            <input style="width:84px;text-align:right;font-family:var(--mono)" data-sv="${i}" value="${esc(String(st.value||''))}" placeholder="0">
+            <button class="x" data-sd="${i}" title="삭제">✕</button></div>`).join('')}
+          <button class="btn sm" id="plAddS">+ 할인 단계 추가</button>
+          <h2 style="margin-top:18px">전달 양식</h2>
+          <p class="edhint">{플랫폼} {구성} {정가} {최종가} {할인율} {할인내역} 자리에 값이 들어갑니다. 비워 두면 기본 양식을 씁니다.</p>
+          <textarea class="ptpl" id="plTpl" placeholder="[{플랫폼}]&#10;제품 구성 : {구성}&#10;정상가 : {정가}&#10;판매가 : {최종가} ({할인율} 할인)">${esc(pl.tpl||'')}</textarea>
+          <h2 style="margin-top:14px">메모</h2>
+          <input style="width:100%;padding:8px 10px;border:1px solid var(--line-2);border-radius:7px;font-size:13px;font-family:inherit"
+            id="plNote" value="${esc(pl.note||'')}" placeholder="스킴 조건, 담당자, 마감 등">
+        `:'<p class="edhint">플랫폼을 고르거나 [+ 추가] 를 누르세요.</p>'}
+      </div>
+    </div>`;
+  const c2=pcfg();
+  app.querySelectorAll('[data-pn]').forEach(i=>i.oninput=e=>{const p=c2.products.find(x=>x.id===i.dataset.pn);if(p)p.name=e.target.value;});
+  app.querySelectorAll('[data-pp]').forEach(i=>i.oninput=e=>{const p=c2.products.find(x=>x.id===i.dataset.pp);if(p)p.price=e.target.value.replace(/[^0-9]/g,'');});
+  app.querySelectorAll('[data-pd]').forEach(b=>b.onclick=()=>{
+    c2.products=c2.products.filter(x=>x.id!==b.dataset.pd);delete S.price.sel[b.dataset.pd];render();});
+  document.getElementById('pcAddP').onclick=()=>{c2.products.push({id:uid(),name:'',price:''});render();};
+  app.querySelectorAll('[data-ple]').forEach(b=>b.onclick=()=>{S.price.pl=b.dataset.ple;render();});
+  document.getElementById('pcAddPl').onclick=()=>{const n={id:uid(),name:'새 플랫폼',steps:[],tpl:'',note:''};c2.platforms.push(n);S.price.pl=n.id;render();};
+  if(pl){
+    document.getElementById('plName').onchange=e=>{pl.name=e.target.value;render();};
+    document.getElementById('plDel').onclick=()=>{
+      c2.platforms=c2.platforms.filter(x=>x.id!==pl.id);
+      if(S.price.plat===pl.id)S.price.plat='';
+      S.price.pl=(c2.platforms[0]||{}).id||null;render();};
+    app.querySelectorAll('[data-sl]').forEach(i=>i.oninput=e=>{pl.steps[+i.dataset.sl].label=e.target.value;});
+    app.querySelectorAll('[data-sk]').forEach(i=>i.onchange=e=>{pl.steps[+i.dataset.sk].kind=e.target.value;});
+    app.querySelectorAll('[data-sv]').forEach(i=>i.oninput=e=>{pl.steps[+i.dataset.sv].value=e.target.value.replace(/[^0-9.]/g,'');});
+    app.querySelectorAll('[data-sd]').forEach(b=>b.onclick=()=>{pl.steps.splice(+b.dataset.sd,1);render();});
+    document.getElementById('plAddS').onclick=()=>{(pl.steps=pl.steps||[]).push({label:'',kind:'pct',value:''});render();};
+    document.getElementById('plTpl').oninput=e=>{pl.tpl=e.target.value;};
+    document.getElementById('plNote').oninput=e=>{pl.note=e.target.value;};
+  }
+  document.getElementById('pcDone').onclick=async()=>{
+    const b=document.getElementById('pcDone');b.disabled=true;b.textContent='저장 중…';
+    await saveCfg();S.price.edit=false;window.scrollTo(0,0);render();};
 }
 function loadJS(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
 async function exportDone(rows){
@@ -1405,6 +1627,7 @@ document.getElementById('home').onclick=()=>{
 };
 document.getElementById('navCal').onclick=()=>{S.view='cal';S.cur=null;S.curEv=null;if(!S.selDate)S.selDate=todayStr();window.scrollTo(0,0);render();};
 document.getElementById('navDone').onclick=()=>{S.view='done';S.cur=null;S.curEv=null;window.scrollTo(0,0);render();};
+document.getElementById('navPrice').onclick=()=>{S.view='price';S.cur=null;S.curEv=null;S.price.edit=false;window.scrollTo(0,0);render();};
 document.getElementById('whoami').onclick=()=>{
   const n=prompt('이름을 적어주세요. 문서를 누가 썼는지 표시됩니다.',S.me||'');
   if(n!=null){S.me=n.trim();lsSet('wiki_me',S.me);render();}
@@ -1418,10 +1641,10 @@ if(!SUPABASE_URL||SUPABASE_URL.indexOf('supabase.co')<0){
   render();
   loadAll();
   setInterval(()=>{
-    if(document.visibilityState==='visible'&&S.view!=='compose'&&S.view!=='evedit'&&S.view!=='io')loadAll();
+    if(document.visibilityState==='visible'&&S.view!=='compose'&&S.view!=='evedit'&&S.view!=='io'&&S.view!=='price')loadAll();
   },30000);
   document.addEventListener('visibilitychange',()=>{
-    if(document.visibilityState==='visible'&&S.view!=='compose'&&S.view!=='evedit'&&S.view!=='io')loadAll();
+    if(document.visibilityState==='visible'&&S.view!=='compose'&&S.view!=='evedit'&&S.view!=='io'&&S.view!=='price')loadAll();
   });
 }
 </script>
